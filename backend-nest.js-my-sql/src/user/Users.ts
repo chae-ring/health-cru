@@ -9,7 +9,7 @@ import { Column,
 import { Posts } from "./Posts";
 
 
-@Entity({ schema: 'example1', name: 'users' }) // schema - DB명, name - 테이블명
+@Entity({ schema: 'sample_db', name: 'users' }) // schema - DB명, name - 테이블명
 export class Users{
     @PrimaryGeneratedColumn({type:'int',name:'id'}) // primary key - id
     id:number;
