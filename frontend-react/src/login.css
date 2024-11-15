@@ -1,0 +1,116 @@
+/* Login.css */
+
+/* 전체 로그인 컨테이너 */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+  }
+  
+  /* 모바일 화면용 폼 */
+  .login-form-mobile {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 320px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-form-mobile h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input:focus {
+    border-color: #007bff;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* PC 화면용 폼 */
+  .login-form-pc {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-form-pc h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .login-form-pc .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .login-form-pc input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .login-form-pc input:focus {
+    border-color: #007bff;
+  }
+  
+  .login-form-pc .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  .login-form-pc .login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .login-form-pc .login-button:hover {
+    background-color: #0056b3;
+  }
+  
