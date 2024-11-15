@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import { Mobile, PC } from './mobilePC';  // Mobile, PC 컴포넌트를 import
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* 모바일 화면에서만 보이는 콘텐츠 */}
+      <Mobile>
+        <h1>This is a mobile view!</h1>
+      </Mobile>
+
+      {/* PC 화면에서만 보이는 콘텐츠 */}
+      <PC>
+        <h1>This is a PC view!</h1>
+      </PC>
     </div>
   );
 }
