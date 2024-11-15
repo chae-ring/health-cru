@@ -7,16 +7,16 @@ import *as dotenv from 'dotenv';
 dotenv.config();
 const config:TypeOrmModuleOptions = {
     type:'mysql', // 어떤 DB인가
-    host:'localhost', // DB host
+    host:'127.0.0.1', // DB host
     port:3306, // DB port
-    username:process.env.DB_USERNAME,
-    password:process.env.DB_PASSWORD,
-    database:process.env.DB_DATABASE,
+    username:'root',
+    password:'sangtae1@',
+    database:'sample_db',
     entities:[ // 만들 테이블
         Users,
         Posts
     ],
-    synchronize : false, // 한번 true한 뒤로는 무조건 false
+    synchronize : true, // 한번 true한 뒤로는 무조건 false
     autoLoadEntities:true, // 테이블 자동 로드
     charset:'utf8mb4',
     logging:true, 
