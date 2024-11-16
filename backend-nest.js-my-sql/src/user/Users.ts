@@ -23,6 +23,9 @@ export class Users{
     @Column('int',{name:'age'})
     age:number;
 
+    @Column('varchar',{name:'password', length:20})
+    password:string;
+
     @CreateDateColumn() // 언제 생성되었나
     createdAt: Date;
 

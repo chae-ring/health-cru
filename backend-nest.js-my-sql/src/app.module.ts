@@ -2,13 +2,17 @@
 import { Module } from '@nestjs/common'; // 라이브러리 import
 import { AppController } from './app.controller'; // app.controller.ts 파일로부터 import
 import { AppService } from './app.service'; // app.service.ts 파일로부터 import
+
 import { ConfigModule } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm';
+import *as ormconfig from './user/ormconfig';
+
 import { Users } from './user/Users';
 import { Posts } from './user/Posts';
 import { UserModule } from './user/user.module';
-import *as ormconfig from './user/ormconfig';
-
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
+import { PrismaService } from './user/prisma.service';
 
 @Module({
   imports: [
@@ -18,9 +22,10 @@ import *as ormconfig from './user/ormconfig';
     Users,
     Posts,
     TypeOrmModule.forRoot(ormconfig),
+    TypeOrmModule.forFeature([Users]),
     UserModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, UserController],
+  providers: [AppService, UserService, PrismaService],
 })
 export class AppModule {}
