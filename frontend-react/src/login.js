@@ -4,12 +4,11 @@ import { Mobile, PC } from './mobilePC';  // 반응형 컴포넌트 import
 import './login.css';  // 로그인 페이지에 대한 스타일
 import kakaoLogo from './img/kakaoLogo.png';
 
-function Login() {
+function Login({ toggleForm }) {  // toggleForm을 props로 받기
   const [username, setUsername] = useState('');  // 아이디 상태
   const [password, setPassword] = useState('');  // 비밀번호 상태
   const [error, setError] = useState('');  // 에러 메시지 상태
 
-  // 회원가입, 아이디/비밀번호 버튼 함수
   const styles = {
     container: {
       display: "flex", // 가로 정렬
@@ -70,21 +69,22 @@ function Login() {
               />
             </div>
 
-            {error && <div className="error-message">{error}</div>} 
+            {error && <div className="error-message">{error}</div>}
             <button type="submit" className="login-button">이메일로 로그인</button>
 
-          <div>
-          <img src={kakaoLogo} alt="kakao login icon" className='kakao-button'/>
-          </div>
-              
-            
-          <div style={styles.container}>
-            <button style={{ ...styles.button, fontSize: "11px" }}>아이디/비밀번호 찾기
-            </button>
-            <button style={{ ...styles.button, fontSize: "12px"}}>회원가입</button>
+            <div>
+              <img src={kakaoLogo} alt="kakao login icon" className='kakao-button'/>
             </div>
 
-            
+            <div style={styles.container}>
+              <button style={{ ...styles.button, fontSize: "11px" }}>아이디/비밀번호 찾기</button>
+              <button 
+                style={{ ...styles.button, fontSize: "12px" }}
+                onClick={toggleForm}  // 회원가입 화면으로 전환
+              >
+                회원가입
+              </button>
+            </div>
           </form>
         </div>
       </Mobile>
@@ -123,11 +123,14 @@ function Login() {
             </div>
 
             <div style={styles.container}>
-            <button style={{ ...styles.button, fontSize: "11px" }}>아이디/비밀번호 찾기
-            </button>
-            <button style={{ ...styles.button, fontSize: "12px"}}>회원가입</button>
+              <button style={{ ...styles.button, fontSize: "11px" }}>아이디/비밀번호 찾기</button>
+              <button 
+                style={{ ...styles.button, fontSize: "12px" }}
+                onClick={toggleForm}  // 회원가입 화면으로 전환
+              >
+                회원가입
+              </button>
             </div>
-
           </form>
         </div>
       </PC>
@@ -136,3 +139,4 @@ function Login() {
 }
 
 export default Login;
+
