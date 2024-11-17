@@ -13,6 +13,9 @@ import { UserModule } from './user/user.module';
 import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
 import { PrismaService } from './user/prisma.service';
+import { LoginModule } from './login/login.module';
+
+// 퍼블릭 ip 주소 13.209.24.64
 
 @Module({
   imports: [
@@ -24,6 +27,7 @@ import { PrismaService } from './user/prisma.service';
     TypeOrmModule.forRoot(ormconfig),
     TypeOrmModule.forFeature([Users]),
     UserModule,
+    LoginModule,
   ],
   controllers: [AppController, UserController],
   providers: [AppService, UserService, PrismaService],
