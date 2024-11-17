@@ -13,24 +13,6 @@ export class UserService {
         private usersRepository : Repository<Users>,
         private prismaService: PrismaService
     ) {}
-    /*
-    // 11.16) 회원가입 구현 
-    async Join(email:string, name:string, age:number, password:string) {
-        const newuser = await this.usersRepository.findOne({where:{email}});
-        if(newuser){
-            throw new UnauthorizedException('이미 존재하는 사용자입니다')
-            return;
-        }
-        else[
-            await this.usersRepository.save({
-                email,
-                name,
-                age,
-                password
-            })
-        ]
-    } */
-
 
     // 전체 가져오기
     async fetchAllUsers(): Promise<User[]> {

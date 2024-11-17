@@ -1,16 +1,24 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from '@prisma/client';
+
+import { JwtAuthGuard } from '../auth/jwt.guard';
 
 @Controller('user')
 export class UserController {
     constructor(private readonly userservice: UserService) {}
-/*
-    @Post('join')
-    async Join(@Body() body) {
-        await this.userservice.Join(body.email, body.name, body.age, body.password);
+
+    @UseGuards(JwtAuthGuard)
+    @Get('all')
+    getAllUser() {
+        return {
+            success: true,
+            user: {
+                email:'test@test.com',
+            }
+        }
     }
-*/    
+
     @Get() // 사용자 전체 목록 가져오기
     async fetchAllUsers(): Promise<User[]> {
         return this.userservice.fetchAllUsers();
