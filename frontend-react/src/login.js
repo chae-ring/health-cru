@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Mobile, PC } from './mobilePC';  // 반응형 컴포넌트 import
 import './login.css';  // 로그인 페이지에 대한 스타일
-import kakaoLogo from './img/kakaoLogo.png';
 
 function Login({ toggleForm }) {  // toggleForm을 props로 받기
   const [username, setUsername] = useState('');  // 아이디 상태
@@ -70,11 +69,7 @@ function Login({ toggleForm }) {  // toggleForm을 props로 받기
             </div>
 
             {error && <div className="error-message">{error}</div>}
-            <button type="submit" className="login-button">이메일로 로그인</button>
-
-            <div>
-              <img src={kakaoLogo} alt="kakao login icon" className='kakao-button'/>
-            </div>
+            <button type="submit" className="login-button">Login</button>
 
             <div style={styles.container}>
               <button style={{ ...styles.button, fontSize: "11px" }}>아이디/비밀번호 찾기</button>
@@ -116,11 +111,7 @@ function Login({ toggleForm }) {  // toggleForm을 props로 받기
               />
             </div>
             {error && <div className="error-message">{error}</div>}
-            <button type="submit" className="login-button">이메일로 로그인</button>
-
-            <div>
-              <img src={kakaoLogo} alt="kakao login icon" className='kakao-button'/>
-            </div>
+            <button type="submit" className="login-button">Login</button>
 
             <div style={styles.container}>
               <button style={{ ...styles.button, fontSize: "11px" }}>아이디/비밀번호 찾기</button>
