@@ -14,7 +14,7 @@ export class UserController {
         return {
             success: true,
             user: {
-                email:'test@test.com',
+                email:'로그인 완성했다데스.',
             }
         }
     }
@@ -31,7 +31,7 @@ export class UserController {
 
     @Post() // 새 사용자 만들기 
     async createUser(@Body() data: User): Promise<User> {
-        return this.userservice.createUser(data);
+        return this.userservice.createUser(data,data.email);
     }
 
     @Put(":id") // 사용자 계정 내용 변경

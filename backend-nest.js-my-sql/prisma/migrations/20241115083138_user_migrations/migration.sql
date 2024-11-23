@@ -5,6 +5,7 @@ CREATE TABLE `User` (
     `name` VARCHAR(191) NULL,
     `age` INTEGER NULL,
     `password` VARCHAR(191) NULL,
+    `exercise` VARCHAR(191) NULL,
 
     UNIQUE INDEX `User_email_key`(`email`),
     PRIMARY KEY (`id`)
