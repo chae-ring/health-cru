@@ -1,8 +1,13 @@
-// App.js
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SignupForm from './SignupForm';
-import Login from './login';
+import Login from './login';  // 로그인 컴포넌트
+import Home from './pages/Home';  // 홈 컴포넌트
+import Forum from './pages/Forum'; // 게시판 컴포넌트
 import { Mobile, PC } from './mobilePC';
+
+
+
 
 function App() {
   // 로그인/회원가입 화면 토글 상태 관리
@@ -14,14 +19,19 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {/* 로그인 화면 또는 회원가입 화면을 조건부로 렌더링 */}
-      {isLogin ? (
-        <Login toggleForm={toggleForm} />  // 로그인 컴포넌트에 toggleForm 전달
-      ) : (
-        <SignupForm />  // 회원가입 컴포넌트를 렌더링
-      )}
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        {/* Routes로 경로 설정 */}
+        <Routes>
+          {/* 조건부로 로그인 혹은 회원가입 화면 렌더링 */}
+          <Route path="/" element={isLogin ? <Login toggleForm={toggleForm} /> : <SignupForm />} />
+          {/* 홈 화면 렌더링*/}
+          <Route path="/home" element={<Home />} />
+          {/* 게시판 화면 렌더링 */}
+          <Route path="/forum" element={<Forum />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

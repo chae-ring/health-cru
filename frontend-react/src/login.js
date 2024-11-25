@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { Mobile, PC } from "./mobilePC"; // 반응형 컴포넌트 import
 import "./login.css"; // 로그인 페이지에 대한 스타일
 import ForgotCredentials from "./ForgotCredentials"; // 아이디/비밀번호 찾기 화면 import
+import { useNavigate } from "react-router-dom"; // useNavigate import
 
 function Login({ toggleForm }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showForgot, setShowForgot] = useState(false); // 아이디/비밀번호 찾기 화면을 표시할 상태 추가
+  const navigate = useNavigate(); // useNavigate 훅 초기화
 
   const styles = {
     container: {
@@ -37,6 +39,9 @@ function Login({ toggleForm }) {
     console.log("비밀번호:", password);
     setError("");
     alert("로그인 성공!");
+
+    // 로그인 성공 시 홈 페이지로 이동
+    navigate("/Home"); // /Home 경로로 이동
   };
 
   const handleForgotCredentials = () => {
@@ -154,3 +159,4 @@ function Login({ toggleForm }) {
 }
 
 export default Login;
+
