@@ -5,7 +5,7 @@ import { IoMdInformationCircleOutline } from "react-icons/io";
 import "./MenuBar.css";
 
 const MenuBar = () => {
-    const [activeMenu, setActiveMenu] = useState("home"); // 현재 활성화된 메뉴 상태
+    const [activeMenu, setActiveMenu] = useState("/"); // 현재 활성화된 메뉴 상태
     const navigate = useNavigate();
 
     const handleMenuClick = (path, menu) => {
@@ -50,3 +50,4 @@ const MenuBar = () => {
 };
 
 export default MenuBar;
+

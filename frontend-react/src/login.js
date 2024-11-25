@@ -41,7 +41,7 @@ function Login({ toggleForm }) {
     alert("로그인 성공!");
 
     // 로그인 성공 시 홈 페이지로 이동
-    navigate("/Home"); // /Home 경로로 이동
+    navigate("/home"); // /Home 경로로 이동
   };
 
   const handleForgotCredentials = () => {
