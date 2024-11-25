@@ -1,5 +1,4 @@
 .Menubar {
-    /* 기본 스타일 */
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -9,7 +8,7 @@
     display: flex;
     justify-content: center; /* 아이콘들을 가운데 정렬 */
     border-top: 1px solid rgba(1, 1, 20, 0.178);
-    box-shadow: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 효과 */
     border-radius: 6px;
 }
 
@@ -18,7 +17,7 @@
     justify-content: space-around; /* 아이콘들 사이에 균등 간격 배치 */
     align-items: center;
     width: 100%;
-    gap: 80px; /* 아이콘 간 간격 */
+    gap: 20px; /* 아이콘 간 간격 */
 }
 
 /* 메뉴 아이템 (아이콘과 텍스트를 세로로 배치) */
@@ -31,9 +30,9 @@
 
 /* 개별 아이콘 스타일 */
 .icon {
-    font-size: 18px;
+    font-size: 22px; /* 아이콘 크기 증가 */
     cursor: pointer;
-    color: rgb(14, 1, 1);
+    color: #666; /* 기본 아이콘 색상 */
     transition: color 0.3s ease, transform 0.3s ease; /* 색상과 크기 변화에 대한 트랜지션 효과 */
 }
 
@@ -45,12 +44,22 @@
 
 /* 메뉴 텍스트 스타일 */
 .menu-text {
-    font-size: 10px;
-    color: rgb(0, 0, 0);
+    font-size: 12px; /* 텍스트 크기 조금 키움 */
+    color: #333; /* 텍스트 색상 */
     margin-top: 5px; /* 아이콘과 텍스트 간격 */
 }
 
 /* 메뉴 아이템 호버 효과 */
 .menu-item:hover .icon {
     color: rgba(1, 1, 20, 0.897); /* 호버 시 아이콘 색상 변경 */
+}
+
+/* 반응형 디자인 (모바일에서 아이콘 크기 조정) */
+@media (max-width: 768px) {
+    .icon {
+        font-size: 20px; /* 모바일에서 아이콘 크기 작게 */
+    }
+    .menu-text {
+        font-size: 8px; /* 모바일에서 텍스트 크기 작게 */
+    }
 }

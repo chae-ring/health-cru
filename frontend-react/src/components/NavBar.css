@@ -1,0 +1,45 @@
+.nav-bar {
+    width: auto;
+    background-color: white;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: right;
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    font-size: 24px;
+    color: #333;
+    margin-right: auto; /* 아이콘을 왼쪽으로 배치 */
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 25px; /* 메뉴 아이콘 바로 아래에 위치 */
+    right: 0px; /* NavBar 오른쪽에 정렬 */
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 180px; /* 드롭다운 메뉴의 너비 */
+    text-align: left;
+    padding: 10px 0;
+    z-index: 1100;
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #000000;
+    transition: background-color 0.3s ease, color 0.3s ease; /* 부드러운 전환 */
+    list-style: none; /* 불릿 포인트 제거 */
+}
+
+.dropdown-menu li:hover {
+    background-color: #f0f0f0; /* 호버 시 배경 강조 */
+    color: #143be8e7;
+}
