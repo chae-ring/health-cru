@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.391a6c73.css",
+    "main.js": "/static/js/main.78b3f781.js",
+    "static/js/453.f6713f7b.chunk.js": "/static/js/453.f6713f7b.chunk.js",
+    "static/media/Cafe24Shiningstar-v2.0.ttf": "/static/media/Cafe24Shiningstar-v2.0.82d456155e18f5bee8b0.ttf",
+    "index.html": "/index.html",
+    "main.391a6c73.css.map": "/static/css/main.391a6c73.css.map",
+    "main.78b3f781.js.map": "/static/js/main.78b3f781.js.map",
+    "453.f6713f7b.chunk.js.map": "/static/js/453.f6713f7b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.391a6c73.css",
+    "static/js/main.78b3f781.js"
+  ]
+}

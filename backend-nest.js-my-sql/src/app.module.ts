@@ -2,10 +2,12 @@
 import { Module } from '@nestjs/common'; // 라이브러리 import
 import { AppController } from './app.controller'; // app.controller.ts 파일로부터 import
 import { AppService } from './app.service'; // app.service.ts 파일로부터 import
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
-import { ConfigModule } from '@nestjs/config'
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import *as ormconfig from './user/ormconfig';
+import * as ormconfig from './user/ormconfig';
 
 import { Users } from './user/Users';
 import { Posts } from './user/Posts';
@@ -19,8 +21,11 @@ import { LoginModule } from './login/login.module';
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'), // React 빌드 파일 경로
+    }),
     ConfigModule.forRoot({
-      isGlobal:true,
+      isGlobal: true,
     }),
     Users,
     Posts,
