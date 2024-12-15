@@ -28,26 +28,59 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.home-form-mobile .mobile-header{ 
+    display: flex;
+    justify-content: space-between; /* 로고 왼쪽, 버튼 오른쪽 */
+    align-items: center;
+    padding: 8px 15px;
+    background-color: white;
+    margin-top: -18px;
+}
+
+
 .home-form-mobile h1 {
   font-size: 36px;
   color: #143be8;
+  margin: 0;
 }
 
 .home-form-mobile h2 {
-  text-align:left;
+  text-align:center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.home-form-mobile h3 {
+  text-align: left;
   margin-top: 40px;
   margin-bottom: 30px;
 }
-
 .home-form-mobile .fontLogo {
   
     font-weight: bold;
-    text-align: center;
     font-family: "Cafe24Shiningstar";
     color: #143be8;
-    margin-top: -15px;
-    margin-bottom: 5px;
+    margin: 0;
 }
+.home-form-mobile .button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.home-form-mobile .auth-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.home-form-mobile .auth-button:hover {
+  background-color: #ededed;
+  border-radius: 12px;
+}
+
 
 .home-form-mobile .form-group {
   margin-bottom: 15px;
@@ -55,32 +88,25 @@
 
 /* 오늘의 운동 스타일 */
 .home-form-mobile .today-exercise {
-  background: #e0e0e0;
-  padding: 16px;
-  border-radius: 8px;
+  background: rgb(255, 255, 255);
+  border-color: #838383;
+  padding: 30px;
+  border-radius: 12px;
   margin-top: 8px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 }
 
 .home-form-mobile .exercise-content {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content:center;
 }
 
 .home-form-mobile .exercise-title {
   font-size: 16px;
   font-weight: bold;
-  color: #143be8;
+  color: black;
 }
 
-.home-form-mobile .exercise-play {
-  font-size: 18px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #060606;
-}
 
 /* 크루 리스트 스타일 */
 .home-form-mobile .crew-list {

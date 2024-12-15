@@ -2,12 +2,14 @@
 .forum-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: hidden; /* 가로 드래그 방지 */
   margin: 0;
+  padding: 0;
   background-color: #f0f2f5;
+  height: 100%;
 }
 
 
@@ -17,22 +19,70 @@
   src: url(../font/Cafe24Shiningstar-v2.0.ttf);
 }
 
-.fontLogo {
-  font-family: "Cafe24Shiningstar", sans-serif;
-  color: #143be8;
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 15px;
-  cursor: pointer;
-}
+
 /* 모바일 화면 */
 .forum-form-mobile {
   background-color: white;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 15px;
   width: 100%;
-  height: 810px;
+  height: 820px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.forum-form-mobile .fontLogo {
+  font-family: "Cafe24Shiningstar";
+  color: #143be8;
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.forum-form-mobile .mobile-header{
+  display: flex;
+  justify-content: space-between; /* 로고 왼쪽, 버튼 오른쪽 */
+  align-items: center;
+  padding: 8px 15px;
+  background-color: white;
+  margin-top: -10px;
+  margin-bottom: 2px;
+}
+
+.forum-form-mobile .post-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: none;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.forum-form-mobile .post-button:hover{
+  color:#143be8;
+}
+.forum-form-mobile .post-button:active{
+  background-color: #f0f0f0; /* 클릭 시 배경색 변화 */
+  border-radius: 12px;
+}
+.forum-form-mobile .post-icon {
+  font-size: 22px;
+  transition: transform 0.3 ease; /* 부드러운 이동 효과*/
+}
+
+.forum-form-mobile .post-button:hover .post-icon{
+  transform: translateX(5px);
+}
+
+.forum-form-mobile .post-text {
+  font-size: 12px;
+}
+
+.forum-form-mobile .highlight-text {
+  color: #143be8; /* 원하는 색상으로 변경 */
+  font-weight: bold; /* 텍스트 두껍게 */
 }
 
 .forum-form-mobile h2 {
@@ -47,7 +97,7 @@
 }
 
 /* 검색 창 */
-.search-bar {
+.forum-form-mobile .search-bar {
   display: flex;
   align-items: center;
   padding: 1px 3px;
@@ -58,18 +108,18 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.search-icon {
+.forum-form-mobile .search-icon {
   font-size: 22px;
   color: #666;
   margin-right: 10px;
 }
-.search-button{
+.forum-form-mobile .search-button{
   border: none;
   background: none;
   padding: 0;
   cursor: pointer;
 }
-.search-input {
+.forum-form-mobile .search-input {
   border: none;
   background: transparent;
   flex: 1;
@@ -78,51 +128,70 @@
   outline: none;
 }
 
-.search-input::placeholder {
+.forum-form-mobile .search-input::placeholder {
   color: #999;
 }
 
 /* 크루 리스트 */
-.crew-list {
+.forum-form-mobile .crew-list {
   display: flex;
-  gap: 10px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 0 10px;
+  scroll-snap-type: x mandatory; /*스와이프 시 정렬 */
+  gap: 10px;
+  padding: 10px;
 }
 
-.crew-list::-webkit-scrollbar {
-  height: 6px;
+.forum-form-mobile .crew-list::-webkit-scrollbar {
+  display: none;
 }
 
-.crew-list::-webkit-scrollbar-thumb {
+.forum-form-mobile .crew-list::-webkit-scrollbar-thumb {
   background-color: #bbb;
   border-radius: 4px;
 }
 
-.crew-list::-webkit-scrollbar-track {
+.forum-form-mobile .crew-list::-webkit-scrollbar-track {
   background-color: #f0f0f0;
 }
 
-.crew-card {
-  width: 120px;
-  height: 160px;
-  background-color: #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  scroll-snap-align: center;
+.forum-form-mobile .crew-card {
+  width: 109px;
+  height: 155px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: center; /* 각 카드가 화면에 맞춰 정렬되도록 */
+  flex-shrink: 0; /* 크기 고정*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 인기 크루 */
-.interest-list {
-  display: flex;
+.forum-form-mobile .popular-list {
+  display: grid; /* 그리드 레이아웃 사용 */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 화면 크기에 따라 카드 크기 자동 조정 */
+  max-height: 400px; /* 최대 높이 설정 */
+  overflow-y: auto; /* 세로 스크롤 활성화 */
+  overflow-x: hidden;
+  padding: 10px;
   gap: 12px;
 }
 
-.interest-card {
-  height: 50px;
-  background-color: #e0e0e0;
-  border-radius: 8px;
+.forum-form-mobile .popular-list::-webkit-scrollbar {
+  display: none;
+}
+
+.forum-form-mobile .popular-card {
+  background-color: #f5f5f5; /* 카드 배경 색 */
+  height: 170px; /* 카드 높이 설정 */
+  width: 210px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  transition: transform 0.3s ease; /* 마우스 오버 시 크기 변경 효과 */
 }
 
 /* 하단 네비게이션 */
@@ -142,19 +211,149 @@
 .forum-form-pc {
   background-color: white;
   padding: 40px;
-  max-width: 1200px;
-  margin: 20px auto;
-  border-radius: 12px;
+  overflow-x: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: calc(100vh-60px); /* 헤더를 제외한 전체 높이*/
+  margin: 0 auto; /*화면 중앙에 정렬 */
+  box-sizing: border-box; /* 패딩 포함 크기 계산*/
+}
+
+.forum-form-pc .fontLogo {
+  font-family: "Cafe24Shiningstar";
+  color: #143be8;
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+  cursor: pointer;
 }
 
 .forum-form-pc .form-group {
   margin-bottom: 30px;
+  margin: 10px;
+}
+
+.forum-form-pc h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0 10px;
+  color: #333;
 }
 
 .forum-form-pc h3 {
   font-size: 20px;
   margin-bottom: 10px;
+}
+
+.forum-form-pc .highlight-text {
+  color: #143be8; /* 원하는 색상으로 변경 */
+  font-weight: bold; /* 텍스트 두껍게 */
+}
+
+.forum-form-pc .pc-header {
+  display: flex;
+  justify-content: space-between; /* 로고 왼쪽, NavBar 오른쪽 */
+  align-items: center;
+  padding: 0 40px;
+  background-color: white;
+  margin-top: -20px;
+}
+/* 검색 창 */
+.forum-form-pc .search-bar {
+  display: flex;
+  align-items: center;
+  padding: 1px 3px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.forum-form-pc .search-icon {
+  font-size: 22px;
+  color: #666;
+  margin-right: 10px;
+}
+.forum-form-pc .search-button{
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+.forum-form-pc .search-input {
+  border: none;
+  background: transparent;
+  flex: 1;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+}
+
+.forum-form-pc .search-input::placeholder {
+  color: #999;
+}
+
+/* 크루 리스트 */
+.forum-form-pc .crew-list {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory; /*스와이프 시 정렬 */
+  gap: 10px;
+  padding: 10px;
+}
+
+.forum-form-pc .crew-list::-webkit-scrollbar {
+  display: none;
+}
+
+.forum-form-pc .crew-list::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 4px;
+}
+
+.forum-form-pc .crew-list::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+.forum-form-pc .crew-card {
+  width: 109px;
+  height: 155px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: center; /* 각 카드가 화면에 맞춰 정렬되도록 */
+  flex-shrink: 0; /* 크기 고정*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 인기 크루 */
+.forum-form-pc .popular-list {
+  display: grid; /* 그리드 레이아웃 사용 */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 화면 크기에 따라 카드 크기 자동 조정 */
+  max-height: 800px; /* 최대 높이 설정 */
+  overflow-y: auto; /* 세로 스크롤 활성화 */
+  overflow-x: hidden;
+  padding: 10px;
+  gap: 12px;
+}
+
+.forum-form-pc .popular-list::-webkit-scrollbar {
+  display: none;
+}
+
+.forum-form-pc .popular-card {
+  background-color: #f5f5f5; /* 카드 배경 색 */
+  height: 170px; /* 카드 높이 설정 */
+  width: 210px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  transition: transform 0.3s ease; /* 마우스 오버 시 크기 변경 효과 */
 }
 
 /* 반응형 스타일 */
@@ -163,9 +362,6 @@
     padding: 0 15px;
   }
 
-  .forum-form-pc {
-    padding: 20px;
-  }
 
   .crew-card {
     width: 100px;

@@ -95,7 +95,10 @@ function Login({ toggleForm }) {
                   </button>
                   <button
                     style={{ ...styles.button, fontSize: "12px" }}
-                    onClick={toggleForm} // 회원가입 화면으로 전환
+                    onClick={(e) => {
+                      e.preventDefault(); // 폼 제출 방지
+                      navigate("/signup")
+                    }}
                   >
                     회원가입
                   </button>

@@ -25,7 +25,7 @@ const SignupForm = () => {
   // 회원가입 버튼 클릭 시 Home으로 이동
   const handleSignup = () => {
     console.log('회원가입 성공:', formData);  // 회원가입 데이터 확인용
-    navigate('/complte-signup'); // ComplteSignUp 페이지로 이동
+    navigate('/complete-signup'); // ComplteSignUp 페이지로 이동
   };
 
   return (

@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar'; // PC 상단 NavBar 컴포넌트
 import './Forum.css';
 import { useNavigate } from 'react-router-dom';
 import { IoIosSearch } from "react-icons/io";
+import { MdNavigateNext } from "react-icons/md";
 
 const Forum = () => {
   const navigate = useNavigate();
@@ -12,8 +13,8 @@ const Forum = () => {
   // 검색어 상태 추가
   const [searchQuery, setSearchQuery] = useState('');
 
-  const crewList = [1, 2, 3, 4, 5, 6, 7]; // 추천 크루 카드 리스트
-  const popularList = [1, 2, 3, 4]; // 인기 크루 카드 리스트
+  const crewList = [1, 2, 3, 4, 5, 6, 7, 8]; // 추천 크루 카드 리스트
+  const popularList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]; // 인기 크루 카드 리스트
 
   // 검색어 입력 처리 함수
   const handleSearchInputChange = (event) => {
@@ -40,6 +41,10 @@ const Forum = () => {
             >
               HOBBYCREW
             </h1>
+            <button className="post-button">
+              <MdNavigateNext className="post-icon"/>
+              <span className="post-text">모집글 등록</span>
+            </button>
           </header>
 
           {/* 검색 */}
@@ -60,7 +65,9 @@ const Forum = () => {
 
           {/* 추천 크루 */}
           <section className="form-group">
-            <h2>홍길동님께 추천하는 크루</h2>
+            <h2>
+              <span className="highlight-text">홍길동</span>님께 추천하는 크루
+            </h2>
             <div className="crew-list">
               {crewList.map((_, index) => (
                 <div key={index} className="crew-card"></div>
@@ -74,22 +81,20 @@ const Forum = () => {
             <div className="popular-list">
               {popularList.map((_, index) => (
                 <div key={index} className="popular-card">
-                  <p>인기 {index + 1}</p>
                 </div>
               ))}
             </div>
           </section>
-
-          {/* 하단 네비게이션 */}
-          <footer className="menu-bar-footer">
-            <MenuBar />
-          </footer>
         </div>
+        {/* 하단 네비게이션 */}
+        <footer className="menu-bar-footer">
+            <MenuBar />
+        </footer>
       </Mobile>
 
       {/* PC 화면 */}
       <PC>
-        <div className="forum-form-pc">
+      <div className="forum-form-pc">
           {/* 헤더 */}
           <header className="pc-header">
             <h1
@@ -105,7 +110,7 @@ const Forum = () => {
           <section className="form-group">
             <div className="search-bar">
               <button className="search-button" onClick={handleSearch}>
-              <IoIosSearch className="search-icon" />
+                <IoIosSearch className="search-icon" />
               </button>
               <input
                 type="text"
@@ -117,38 +122,28 @@ const Forum = () => {
             </div>
           </section>
 
-          {/* 메인 컨텐츠 */}
-          <main>
-            <section className="form-group">
-              <h2>오늘의 운동</h2>
-              <div className="exercise-content">
-                <p>맥켄지 운동</p>
-                <button className="exercise-play">▶</button>
-              </div>
-            </section>
+          {/* 추천 크루 */}
+          <section className="form-group">
+            <h2>
+              <span className="highlight-text">홍길동</span>님께 추천하는 크루
+            </h2>
+            <div className="crew-list">
+              {crewList.map((_, index) => (
+                <div key={index} className="crew-card"></div>
+              ))}
+            </div>
+          </section>
 
-            <section className="form-group">
-              <h3>오늘의 크루</h3>
-              <div className="crew-list">
-                {crewList.map((_, index) => (
-                  <div key={index} className="crew-card">
-                    <p>크루 {index + 1}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="form-group">
-              <h3>오늘의 관심사</h3>
-              <div className="interest-list">
-                {popularList.map((_, index) => (
-                  <div key={index} className="interest-card">
-                    <p>관심사 {index + 1}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </main>
+          {/* 현재 인기 크루 */}
+          <section className="form-group">
+            <h2>현재 인기 크루</h2>
+            <div className="popular-list">
+              {popularList.map((_, index) => (
+                <div key={index} className="popular-card">
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
       </PC>
     </div>
@@ -156,6 +151,7 @@ const Forum = () => {
 };
 
 export default Forum;
+
 
 
 
